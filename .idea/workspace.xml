@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f6a9a4-f741-41ba-82bf-752ceb2a6d0e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/roles/apache/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/roles/apache/tasks/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/hosts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
