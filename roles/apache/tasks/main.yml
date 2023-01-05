@@ -13,4 +13,4 @@
       dest: /tmp/toto2
 
   - debug:
-        msg: "ma variable listen port: {{listen_port}}"
+      msg: "ma variable listen port: {{listen_port}}"
