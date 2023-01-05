@@ -4,12 +4,12 @@
   - import_tasks: service.yml
 
   - name: on effectue un template
-    ansible.bulletin.template:
+    ansible.builtin.template:
       src: test.j2
       dest: /tmp/toto
 
   - name: on effectue un copy
-    ansible.bulletin.copy:
+    ansible.builtin.copy:
       src: templates/test.j2
       dest: /tmp/toto2
 
