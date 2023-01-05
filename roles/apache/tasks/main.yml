@@ -2,6 +2,7 @@
 # tasks file for apache
   - import_tasks: install.yml
   - import_tasks: service.yml
+
   - name: on effectue un template
     ansible.bulletin.template:
       src: test.j2
@@ -12,5 +13,3 @@
       src: templates/test.j2
       dest: /tmp/toto2
 
-  - debug:
-      msg: "ma variable listen port: {{listen_port}}"
