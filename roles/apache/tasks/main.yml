@@ -11,3 +11,6 @@
     ansible.bulletin.copy:
       src: templates/test.j2
       dest: /tmp/toto2
+
+  - debug:
+        msg: "ma variable listen port: {{listen_port}}"
