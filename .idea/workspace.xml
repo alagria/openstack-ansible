@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f6a9a4-f741-41ba-82bf-752ceb2a6d0e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/roles/openstack/files/publickey-tarkan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/roles/openstack/templates/sudoers.j2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp-shellscript" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hosts" beforeDir="false" afterPath="$PROJECT_DIR$/hosts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.yml" beforeDir="false" afterPath="$PROJECT_DIR$/debug.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/heval" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/defaults/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/handlers/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/meta/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/tasks/install.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/tasks/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/tasks/service.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/templates/test.j2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/tests/inventory" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/tests/test.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/roles/apache/vars/main.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/agrialagoz/Documents/ansible project/alagria&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/agrialagoz/Documents/ansible project/openstack/roles/openstack/tasks"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/roles/openstack/tasks" />
+      <recent name="$PROJECT_DIR$/roles/openstack" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/roles/openstack/files" />
+      <recent name="$PROJECT_DIR$/roles/openstack" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

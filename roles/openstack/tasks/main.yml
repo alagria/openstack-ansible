@@ -1,0 +1,14 @@
+- name: "creation repertoire .ssh dans home"
+  ansible.builtin.file:
+    path: ~/.ssh
+    state: directory
+
+- name: add sudoers
+  ansible.builtin.template:
+    src: sudoers.j2
+    dest: /etc/sudoers.d/{{ item }}
+  with_items:
+    - tarkan
+    - heval
+    - agri
+
