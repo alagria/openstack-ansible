@@ -26,8 +26,8 @@
     update_cache: yes
 
 - name: " Add the line if it does not exist"
-        lineinfile:
-          path: /etc/sysctl.conf
-          line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
-          state: present
-          backup: yes
+    lineinfile:
+      path: /etc/sysctl.conf
+      line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
+      state: present
+      backup: yes
