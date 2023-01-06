@@ -11,4 +11,23 @@
     - tarkan
     - heval
     - agri
+    - ubuntu
 
+- name: Install a list of packages
+  ansible.builtin.apt:
+    pkg:
+    - netplan.io
+    - git
+    - vim
+    - sudo
+    - net-tools
+    - inetutils-traceroute
+    - ifupdown
+    update_cache: yes
+
+- name: "Example2: Add the line if it does not exist"
+        lineinfile:
+          path: /etc/sysctl.conf
+          line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
+          state: present
+          backup: yes
