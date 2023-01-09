@@ -35,6 +35,7 @@
 - name: Ansible lineinfile regexp replace example
   lineinfile:
     dest: /etc/sysctl.conf
-    regexp: '#net.ipv4.ip_forward'
-    line: 'net.ipv4.ip_forward'
+    regexp: '#net.ipv4.ip_forward=1'
+    line: 'net.ipv4.ip_forward=1'
+
     backrefs: yes
