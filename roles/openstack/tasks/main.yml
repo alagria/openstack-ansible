@@ -25,9 +25,16 @@
     - ifupdown
     update_cache: yes
 
-- name: " Add the line if it does not exist"
-    lineinfile:
-      path: /etc/sysctl.conf
-      line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
-      state: present
-      backup: yes
+- name: "Add the line if it does not exist"
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
+    state: present
+    backup: yes
+
+- name: Ansible lineinfile regexp replace example
+  lineinfile:
+    dest: /etc/sysctl.conf
+    regexp: '#net.ipv4.ip_forward'
+    line: 'net.ipv4.ip_forward'
+    backrefs: yes
