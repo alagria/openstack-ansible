@@ -1,4 +1,4 @@
-- name: "creation repertoire .ssh dans home"
+- name: creation repertoire .ssh dans home
   ansible.builtin.file:
     path: ~/.ssh
     state: directory
@@ -25,21 +25,63 @@
     - ifupdown
     update_cache: yes
 
-- name: "Add the line if it does not exist"
-  lineinfile:
-    path: /etc/sysctl.conf
-    line: 's/#net.ipv4.ip_forward/net.ipv4.ip_forward/'
+- name: Set sysctl for net.ipv4.ip_forward=1
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: "1"
+    sysctl_set: yes
     state: present
-    backup: yes
-
-- name: Ansible lineinfile regexp replace example
-  lineinfile:
-    dest: /etc/sysctl.conf
-    regexp: '#net.ipv4.ip_forward=1'
-    line: 'net.ipv4.ip_forward=1'
-    backrefs: yes
-
-- sysctl:
-    name: load sysctl
     sysctl_file: /etc/sysctl.conf
     reload: yes
+
+- name: create netplan config file
+  ansible.builtin.template:
+    src: network-config-netplan.j2
+    dest: /etc/netplan/00-installer-config.yaml
+
+- name: remove stack-volumes-lvmdriver-1
+  community.general.lvg:
+    vg: stack-volumes-lvmdriver-1
+    state: absent
+  register: toto
+
+- debug:
+    var: toto
+
+- name: clone of a single branch
+  ansible.builtin.git:
+    repo: https://opendev.org/openstack/devstack
+    dest: /home/ubuntu/devstack
+    clone: yes
+
+- name: add configurations to local.conf
+  ansible.builtin.template:
+    src: localconf.j2
+    dest: devstack/local.conf
+
+- name: create shellscript openrc.sh
+  ansible.builtin.template:
+    src: openrc-sh.j2
+    dest: /usr/local/bin/openrc.sh
+    mode: '0755'
+
+- name: Change the working directory to devstack/ and execute stack.sh
+  ansible.builtin.shell: stack.sh >> somelog.txt
+  args:
+    chdir: devstack/
+  check_mode: yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
