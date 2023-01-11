@@ -1,18 +1,3 @@
-- name: creation repertoire .ssh dans home
-  ansible.builtin.file:
-    path: ~/.ssh
-    state: directory
-
-- name: add sudoers
-  ansible.builtin.template:
-    src: sudoers.j2
-    dest: /etc/sudoers.d/{{ item }}
-  with_items:
-    - tarkan
-    - heval
-    - agri
-    - ubuntu
-
 - name: Install a list of packages
   ansible.builtin.apt:
     pkg:
@@ -45,19 +30,13 @@
     state: absent
   register: toto
 
-- debug:
-    var: toto
-
-- name: clone of a single branch
+- name: git clone devstack of a single branch
+  become: true
+  become_user: devstack
   ansible.builtin.git:
     repo: https://opendev.org/openstack/devstack
     dest: /home/ubuntu/devstack
     clone: yes
-
-- name: add configurations to local.conf
-  ansible.builtin.template:
-    src: localconf.j2
-    dest: devstack/local.conf
 
 - name: create shellscript openrc.sh
   ansible.builtin.template:
@@ -65,11 +44,33 @@
     dest: /usr/local/bin/openrc.sh
     mode: '0755'
 
-- name: Change the working directory to devstack/ and execute stack.sh
-  ansible.builtin.shell: stack.sh >> somelog.txt
-  args:
-    chdir: devstack/
-  check_mode: yes
+- name: Create the system groups
+  group:
+    name: "devstack"
+    state: "present"
+    system: "yes"
+
+- name: Create system user
+  user:
+    name: "{{devstack_user}}"
+    generate_ssh_key: "yes"
+    shell: "/bin/bash"
+    groups: "sudo,devstack"
+    createhome: "yes"
+    home: "{{devstack_user_home}}"
+
+- name: add configurations to local.conf
+  become_user: devstack
+  ansible.builtin.template:
+    src: localconf.j2
+    dest: devstack/local.conf
+
+- name: Run stack.sh
+  become: true
+  become_user: devstack
+  command: "{{ devstack_user_home }}/devstack-repo/stack.sh"
+
+
 
 
 

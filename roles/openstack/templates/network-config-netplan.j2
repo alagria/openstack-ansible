@@ -4,14 +4,14 @@ network:
       dhcp4: false
       addresses: [{{ ip_openstack }}/24]
       nameservers:
-        addresses: [{{ ip_server_openstack }}]
+        addresses: [{{ ip_gateway }}]
       routes:
       - to: default
-        via: {{ ip_server_openstack }}
+        via: {{ ip_gateway }}
     eno2:
       dhcp4: false
       addresses: [{{ ip_ferme_openstack }}]
       nameservers:
-        addresses: [{{ ip_server_openstack }}]
+        addresses: [{{ ip_gateway }}]
   version: 2
 

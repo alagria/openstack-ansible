@@ -1,5 +1,7 @@
-ip_openstack: "192.168.1.20"
-ip_server_openstack: "192.168.1.254"
+ip_openstack: "192.168.2.210"
+ip_gateway: "192.168.1.254"
 ip_ferme_openstack: "192.168.2.1/24"
 openstackpassword: changeme
 project: kanform
+devstack_user: "devstack"
+devstack_user_home: "/home/{{devstack_user}}"
